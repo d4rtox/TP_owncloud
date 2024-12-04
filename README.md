@@ -121,4 +121,7 @@ echo "=== Fin de la sauvegarde : $(date) ===" >> "$LOG_FILE"
 
 ```./envoiftp.sh```
 
+- Vérifier la réception sur la machine cliente :
+Dans le fichiers que vous avez défini, vous devriez retrouver votre fichier zip.
+```sio2-04-12-2024_16:05:12.zip```
 
