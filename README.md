@@ -45,13 +45,13 @@ Vous pouvez donc voir dans "source" où sont stockés les fichiers.
 
 ## Automatisation de la tâche :
 
-Configurer le crontab :
+- Configurer le crontab :
 
 ```crontab -e``` 
 
-saisir 1
+puis saisir 1
 
-Pour lancer le script de sauvegarde chaque jour à 23h45 voici ligne à saisir :
+- Pour lancer le script de sauvegarde chaque jour à 23h45 voici ligne à saisir :
 
 ```45 23 * * * ~/backup_toip.sh```
 
