@@ -42,7 +42,9 @@ Vous pouvez donc voir dans "source" où sont stockés les fichiers.
 
 ```sio2-04-12-2024_10:52:39.zip```
 
-- Automatisation de la tâche :
+
+## Automatisation de la tâche :
+
 Configurer le crontab :
 
 ```crontab -e``` 
