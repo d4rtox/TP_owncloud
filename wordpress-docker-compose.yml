@@ -1,39 +1,46 @@
 version: '3.8'
 
-networks:
-  wordpress-net:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 192.168.1.0/24
-          ip_range: 192.168.1.240/24
 services:
   wordpress:
     image: wordpress:latest
     container_name: wordpress
     restart: always
     ports:
-      - "8081:80" # Accès à WordPress sur le port 8081
+      - "8080:80" # Accès à WordPress via http://localhost:8080
     environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_HOST: wordpress-mysql
+      WORDPRESS_DB_USER: user
+      WORDPRESS_DB_PASSWORD: password
       WORDPRESS_DB_NAME: wordpress_db
+    depends_on:
+      - wordpress-mysql
     volumes:
       - wordpress_data:/var/www/html
 
-  db:
+  wordpress-mysql:
     image: mysql:5.7
-    container_name: wordpress_db
+    container_name: wordpress-mysql
     restart: always
     environment:
       MYSQL_DATABASE: wordpress_db
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
     volumes:
-      - db_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80" # Accès à phpMyAdmin via http://localhost:8081
+    environment:
+      PMA_HOST: wordpress-mysql
+      MYSQL_ROOT_PASSWORD: root_password
+    depends_on:
+      - wordpress-mysql
 
 volumes:
   wordpress_data:
-  db_data:
+  mysql_data:
