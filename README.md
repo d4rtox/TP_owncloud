@@ -117,4 +117,8 @@ echo "=== Fin de la sauvegarde : $(date) ===" >> "$LOG_FILE"
 
 ```
 
+Pour tester le script nous exécutons cette commande :
+
+```./envoiftp.sh```
+
 
