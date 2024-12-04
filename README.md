@@ -23,6 +23,7 @@ Vous obtiendrez un long script et trouverez ceci :
 ```
 Vous pouvez donc voir dans "source" où sont stockés les fichiers.
 
+
 ## Création de la sauvegarde
 
 - Création du fichier de réception de la sauvegarde :
