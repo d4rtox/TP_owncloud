@@ -58,7 +58,7 @@ puis saisir 1
 ### Transfert FTP vers un serveur externe :
 
 ## Creation d'une autre machine serveur
-	- Installation du service proftpd
+- Installation du service proftpd
     
     ```apt install proftpd```
 
