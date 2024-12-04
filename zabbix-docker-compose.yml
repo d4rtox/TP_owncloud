@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: zabbix_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/mysql
+
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:latest
+    container_name: zabbix_server
+    restart: always
+    environment:
+      DB_SERVER_HOST: db
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: password
+    depends_on:
+      - db
+    volumes:
+      - zabbix_server_data:/var/lib/zabbix
+
+  zabbix-web:
+    image: zabbix/zabbix-web-nginx-mysql:latest
+    container_name: zabbix_web
+    restart: always
+    environment:
+      DB_SERVER_HOST: db
+      MYSQL_DATABASE: zabbix
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: password
+      ZBX_SERVER_HOST: zabbix-server
+      PHP_TZ: Europe/Paris
+    depends_on:
+      - zabbix-server
+    ports:
+      - "8080:8080" # Accès à l'interface Zabbix via http://localhost:8080
+    volumes:
+      - zabbix_web_data:/usr/share/zabbix
+
+volumes:
+  db_data:
+  zabbix_server_data:
+  zabbix_web_data:
