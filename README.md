@@ -59,14 +59,14 @@ puis saisir 1
 
 ```50 23 * * * ~/envoiftp.sh```
 
-### Transfert FTP vers un serveur externe :
+## Transfert FTP vers un serveur externe :
 
-## Creation d'une autre machine serveur
+### Creation d'une autre machine serveur
 - Installation du service proftpd
     
     ```apt install proftpd```
 
-## Création du fichier envoiftp.sh :
+### Création du fichier envoiftp.sh :
 
 **Voir le script envoiftp.sh**
 
