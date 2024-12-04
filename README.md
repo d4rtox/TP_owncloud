@@ -55,6 +55,10 @@ puis saisir 1
 
 ```45 23 * * * ~/backup_toip.sh```
 
+- Pour lancer le script de transfer chaque jour à 23h50 voici la ligne à saisir :
+
+```50 23 * * * ~/envoiftp.sh```
+
 ### Transfert FTP vers un serveur externe :
 
 ## Creation d'une autre machine serveur
