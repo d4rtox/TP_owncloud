@@ -1,6 +1,6 @@
 ### TP_owncloud
 
-## Sauvegarde des fichiers :
+## Préparation de la sauvegarde des fichiers :
 
 - Création d'un fichier.csv dans le repertoire OwnCloud
 
@@ -21,6 +21,19 @@ Vous obtiendrez un long script et trouverez ceci :
                 "Propagation": ""
             }
 ```
+Vous pouvez donc voir dans "source" où sont stockés les fichiers.
+
+##Création de la sauvegarde
+
+- Création du fichier de réception de la sauvegarde :
+```mkdir ~/backups_ownclouds```
+
+- Création du script.sh pour la sauvegarde des fichiers :
+** Voir le script "backup_toip.sh"**
+
+
+
+
 
 
 
