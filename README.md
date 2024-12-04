@@ -31,6 +31,11 @@ Vous pouvez donc voir dans "source" où sont stockés les fichiers.
 - Création du script.sh pour la sauvegarde des fichiers :
 ** Voir le script "backup_toip.sh"**
 
+- Pour tester de ce script nous allons le lancer :
+```./backup_toip.sh```
+
+
+
 
 
 
